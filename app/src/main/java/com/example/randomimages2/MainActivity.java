@@ -1,17 +1,13 @@
 package com.example.randomimages2;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView[] box_be = new ImageView[6];
     ImageView[] box_bl = new ImageView[6];
-    ImageView[] location = new ImageView[6];
 
     int selected[] = new int[6];
     int _view[] = new int[6];
@@ -81,11 +76,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-//        for (k = 0; k < 6; k++) {
-//            box_be[k].setImageResource(images[selected[k]]);
-//
-//            selected[k] = random.nextInt(maximumValue - minimumValue + 1) + minimumValue;
-//        }
+
+        // 이미지 종류 랜덤
+        for (int k = 0; k < 6; k++) {
+            box_bl[k].setImageResource(images[selected[k]]);
+        }
 
         // 랜덤이미지 노출순서대로 보이기 및 숨기기
         for (int i = 0; i < 6; i++) {
@@ -96,21 +91,23 @@ public class MainActivity extends AppCompatActivity {
                 public void run() {
                     box_bl[_view[finalI]].setVisibility(View.VISIBLE);
                     if ( finalI> 0 )
-                        box_bl[_view[finalI - 1 ]].setVisibility(View.INVISIBLE  );
+                        box_bl[_view[finalI - 1 ]].setVisibility(View.INVISIBLE);
                 }
-            }, 400*i);
+            }, 1000*i);
         }
 
         // 전체 숨기기
-        final Handler handler2 = new Handler();
-        handler2.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < 6; i++) {
-                    box_bl[i].setVisibility(View.INVISIBLE);
+        for(int i = 0; i < 6; i++) {
+            final Handler handler2 = new Handler();
+            handler2.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    for (int i = 0; i < 6; i++) {
+                        box_bl[i].setVisibility(View.INVISIBLE);
+                    }
                 }
-            }
-        }, 2600 );
+            }, 6000 );
+        }
     }
 }
 
