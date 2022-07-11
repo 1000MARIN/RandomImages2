@@ -108,13 +108,8 @@ public class MainActivity extends AppCompatActivity {
 
                 // 클릭 이벤트 생성
 
-
             }
         }, 6000 );
-
-
-
-
 
     }
 }
