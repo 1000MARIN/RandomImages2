@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         box_be[3] = findViewById(R.id.box_be_4);
         box_be[4] = findViewById(R.id.box_be_5);
         box_be[5] = findViewById(R.id.box_be_6);
+
         box_bl[0] = findViewById(R.id.box_bl_1);
         box_bl[1] = findViewById(R.id.box_bl_2);
         box_bl[2] = findViewById(R.id.box_bl_3);
@@ -97,17 +98,24 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // 전체 숨기기
-        for(int i = 0; i < 6; i++) {
-            final Handler handler2 = new Handler();
-            handler2.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < 6; i++) {
-                        box_bl[i].setVisibility(View.INVISIBLE);
-                    }
+        final Handler handler2 = new Handler();
+        handler2.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 6; i++) {
+                    box_bl[i].setVisibility(View.INVISIBLE);
                 }
-            }, 6000 );
-        }
+
+                // 클릭 이벤트 생성
+
+
+            }
+        }, 6000 );
+
+
+
+
+
     }
 }
 

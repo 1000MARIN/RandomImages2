@@ -73,6 +73,7 @@
                 android:gravity="center"
                 android:src="@drawable/ic_baseline_wb_cloudy_24"
                 android:visibility="invisible"
+                android:onClick="onClick_1"
                 tools:ignore="ContentDescription" />
         </RelativeLayout>
 
